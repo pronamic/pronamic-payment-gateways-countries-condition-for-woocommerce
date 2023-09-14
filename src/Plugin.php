@@ -58,8 +58,6 @@ class Plugin {
 			return;
 		}
 
-		\load_plugin_textdomain( 'pronamic-woocommerce-payment-gateways-countries-condition', false, \dirname( \plugin_basename( __FILE__ ) ) . '/languages' ); 
-		
 		\add_action( 'init', [ $this, 'init' ], 1000 );
 
 		\add_filter( 'woocommerce_available_payment_gateways', [ $this, 'woocommerce_available_payment_gateways' ] );
