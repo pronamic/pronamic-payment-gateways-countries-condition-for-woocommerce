@@ -41,7 +41,7 @@ class Plugin {
 	 * @return void
 	 */
 	public function setup() {
-		if ( \has_action(  'plugins_loaded', [ $this, 'plugins_loaded' ] ) ) {
+		if ( \has_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] ) ) {
 			return;
 		}
 
