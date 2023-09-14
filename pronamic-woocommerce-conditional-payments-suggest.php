@@ -107,7 +107,15 @@ class PronamicWooCommercePaymentGatewaysCountriesPlugin {
 		$gateways = \array_filter(
 			$gateways,
 			function ( $gateway ) use ( $country ) {
-				$countries = (array) $gateway->get_option( 'pronamic_countries' );
+				$countries = $gateway->get_option( 'pronamic_countries' );
+
+				if ( ! \is_array( $countries ) ) {
+					return true;
+				}
+
+				if ( [] === $countries ) {
+					return true;
+				}
 
 				return \in_array( $country, $countries, true );
 			}
