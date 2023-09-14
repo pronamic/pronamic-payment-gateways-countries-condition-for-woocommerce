@@ -1,79 +1,35 @@
 <?php
 /**
- * Pronamic WooCommerce Conditional Payments Suggest
+ * Pronamic WooCommerce Payment Gateways Countries
  *
- * @package   PronamicWooCommerceConditionalPaymentsSuggest
+ * @package   PronamicWooCommercePaymentGatewaysCountries
  * @author    Pronamic
  * @copyright 2023 Pronamic
  * 
  * @wordpress-plugin
- * Plugin Name: Pronamic WooCommerce Conditional Payments Suggest
- * Description: This WordPress plugin adds a suggestion for the "Conditional Payment Methods for WooCommerce" plugin to all WooCommerce gateways to restrict payment methods to specific countries.
+ * Plugin Name: Pronamic WooCommerce Payment Gateways Countries
+ * Description: This WordPress plugin makes it possible to set per WooCommerce payment gateway in which countries the gateway is available.
  * Version:     1.0.0
  * Author:      Pronamic
  * Author URI:  https://www.pronamic.eu/
- * Text Domain: pronamic-woocommerce-conditional-payments-suggest
+ * Text Domain: pronamic-woocommerce-payment-gateways-countries
  * Domain Path: /languages/
  * License:     Proprietary
- * License URI: https://www.pronamic.shop/product/pronamic-woocommerce-conditional-payments-suggest/
- * Update URI:  https://wp.pronamic.directory/plugins/pronamic-woocommerce-conditional-payments-suggest/
+ * License URI: https://www.pronamic.shop/product/pronamic-woocommerce-payment-gateways-countries/
+ * Update URI:  https://wp.pronamic.directory/plugins/pronamic-woocommerce-payment-gateways-countries/
  */
 
 /**
- * Pronamic WooCommerce Conditional Payments Suggest Plugin class
+ * Pronamic WooCommerce Payment Gateways Countries Plugin class
  */
-class PronamicWooCommerceConditionalPaymentsSuggestPlugin {
+class PronamicWooCommercePaymentGatewaysCountriesPlugin {
 	/**
 	 * Setup.
 	 * 
 	 * @return void
 	 */
 	public function setup() {
-		add_action( 'init', [ $this, 'init' ], 1000 );
-
-		add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
-	}
-
-	/**
-	 * Init.
-	 * 
-	 * @return void
-	 */
-	public function init() {
-		if ( ! function_exists( 'wc' ) ) {
-			return;
-		}
-
-		$payment_gateways = wc()->payment_gateways()->payment_gateways();
-
-		foreach ( $payment_gateways as $payment_gateway ) {
-			add_filter( 'woocommerce_settings_api_form_fields_' . $payment_gateway->id, [ $this, 'add_order_button_text_setting' ] );
-
-			$order_button_text = (string) $payment_gateway->get_option( 'pronamic_order_button_text' );
-
-			if ( '' !== $order_button_text ) {
-				$payment_gateway->order_button_text = $order_button_text;
-			}
-		}
-	}
-
-	/**
-	 * Add order button text setting field the specified fields.
-	 * 
-	 * @param array $fields Fields.
-	 * @return array
-	 */
-	public function add_order_button_text_setting( $fields ) {
-		$fields['pronamic_order_button_text'] = [
-			'title'       => __( 'Order Button Text', 'pronamic-woocommerce-gateway-order-button-text-setting' ),
-			'type'        => 'text',
-			'default'     => '',
-			'description' => __( 'This setting is added by the "Pronamic WooCommerce Gateway Order Button Text Setting" plugin and affects what text visitors see on the WooCommerce order button, leave blank to use the default WooCommerce text.', 'pronamic-woocommerce-gateway-order-button-text-setting' ),
-			'desc_tip'    => true,
-			'placeholder' => __( 'Pay for order', 'pronamic-woocommerce-gateway-order-button-text-setting' ),
-		];
-
-		return $fields;
+		\add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 	}
 
 	/**
@@ -82,8 +38,132 @@ class PronamicWooCommerceConditionalPaymentsSuggestPlugin {
 	 * @return void
 	 */
 	public function plugins_loaded() {
-		load_plugin_textdomain( 'pronamic-woocommerce-gateway-order-button-text-setting', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+		if ( ! \function_exists( 'WC' ) ) {
+			return;
+		}
+
+		\load_plugin_textdomain( 'pronamic-woocommerce-payment-gateways-countries', false, \dirname( \plugin_basename( __FILE__ ) ) . '/languages' ); 
+		
+		\add_action( 'init', [ $this, 'init' ], 1000 );
+
+		\add_filter( 'woocommerce_available_payment_gateways', [ $this, 'woocommerce_available_payment_gateways' ] );
+	}
+
+	/**
+	 * Init.
+	 * 
+	 * @return void
+	 */
+	public function init() {
+		$payment_gateways = \WC()->payment_gateways()->payment_gateways();
+
+		foreach ( $payment_gateways as $payment_gateway ) {
+			\add_filter( 'woocommerce_settings_api_form_fields_' . $payment_gateway->id, [ $this, 'add_countries_setting' ] );
+		}
+	}
+
+	/**
+	 * Add countries setting field the specified fields.
+	 * 
+	 * @link https://woocommerce.com/document/settings-api/
+	 * @link https://github.com/woocommerce/woocommerce/blob/473a53d54243c6b749a4532112eea4ac8667447f/plugins/woocommerce/includes/shipping/legacy-local-pickup/class-wc-shipping-legacy-local-pickup.php#L133-L143
+	 * @link https://github.com/woocommerce/woocommerce/blob/473a53d54243c6b749a4532112eea4ac8667447f/plugins/woocommerce/includes/shipping/legacy-flat-rate/includes/settings-flat-rate.php#L41-L51
+	 * @link https://github.com/woocommerce/woocommerce/blob/473a53d54243c6b749a4532112eea4ac8667447f/plugins/woocommerce/includes/gateways/cod/class-wc-gateway-cod.php#L118-L130
+	 * @param array $fields Fields.
+	 * @return array
+	 */
+	public function add_countries_setting( $fields ) {
+		$fields['pronamic_countries'] = [
+			'title'             => \__( 'Countries', 'pronamic-woocommerce-gateway-order-button-text-setting' ),
+			'type'              => 'multiselect',
+			'class'             => 'wc-enhanced-select',
+			'css'               => 'width: 400px;',
+			'options'           => \WC()->countries->get_countries(),
+			'default'           => '',
+			'description'       => \__( 'If gateway is only available for certain countries, set it up here. Leave blank to enable for all countries.', 'woocommerce' ),
+			'desc_tip'          => true,
+			'custom_attributes' => [
+				'data-placeholder' => \__( 'Select some countries', 'woocommerce' ),
+			],
+		];
+
+		return $fields;
+	}
+
+	/**
+	 * WooCommerce available payment gateways.
+	 * 
+	 * @link https://github.com/woocommerce/woocommerce/blob/36c644a1c4af908b5c1b2060c215b5643dd07648/plugins/woocommerce/includes/class-wc-payment-gateways.php#L145-L164
+	 * @param array $gateways Gateways.
+	 * @return array
+	 */
+	public function woocommerce_available_payment_gateways( $gateways ) {
+		$country = $this->get_country();
+
+		if ( '' === $country ) {
+			return $gateways;
+		}
+
+		$gateways = \array_filter(
+			$gateways,
+			function ( $gateway ) use ( $country ) {
+				$countries = (array) $gateway->get_option( 'pronamic_countries' );
+
+				return \in_array( $country, $countries, true );
+			}
+		);
+
+		return $gateways;
+	}
+
+	/**
+	 * Get country.
+	 * 
+	 * @link https://github.com/mollie/WooCommerce/blob/0b8635a335ce201a00ebf125fb4795e62a315760/src/Gateway/MolliePaymentGateway.php#L1056-L1073
+	 * @link https://github.com/woocommerce/woocommerce/blob/36c644a1c4af908b5c1b2060c215b5643dd07648/plugins/woocommerce/includes/class-wc-countries.php#L242-L250
+	 * @return string
+	 */
+	private function get_country() {
+		$country = $this->get_customer_billing_country();
+
+		if ( '' === $country ) {
+			$country = $this->get_base_country();
+		}
+
+		return $country;
+	}
+
+	/**
+	 * Get customer billing country.
+	 * 
+	 * @link https://github.com/mollie/WooCommerce/blob/0b8635a335ce201a00ebf125fb4795e62a315760/src/Gateway/MolliePaymentGateway.php#L1056-L1073
+	 * @link https://github.com/woocommerce/woocommerce/blob/36c644a1c4af908b5c1b2060c215b5643dd07648/plugins/woocommerce/includes/class-woocommerce.php#L105-L110
+	 * @link https://github.com/woocommerce/woocommerce/blob/36c644a1c4af908b5c1b2060c215b5643dd07648/plugins/woocommerce/includes/class-wc-customer.php#L587-L595
+	 * @return string
+	 */
+	private function get_customer_billing_country() {
+		if ( null === \WC()->customer ) {
+			return '';
+		}
+
+		return \WC()->customer->get_billing_country();
+	}
+
+	/**
+	 * Get base country.
+	 * 
+	 * @link https://github.com/mollie/WooCommerce/blob/0b8635a335ce201a00ebf125fb4795e62a315760/src/Gateway/MolliePaymentGateway.php#L1056-L1073
+	 * @link https://github.com/woocommerce/woocommerce/blob/36c644a1c4af908b5c1b2060c215b5643dd07648/plugins/woocommerce/includes/class-woocommerce.php#L105-L110
+	 * @link https://github.com/woocommerce/woocommerce/blob/36c644a1c4af908b5c1b2060c215b5643dd07648/plugins/woocommerce/includes/class-wc-customer.php#L587-L595
+	 * @return string
+	 */
+	private function get_base_country() {
+		if ( null === \WC()->countries ) {
+			return '';
+		}
+
+		return \WC()->countries->get_base_country();
 	}
 }
 
-( new PronamicWooCommerceConditionalPaymentsSuggestPlugin() )->setup();
+( new PronamicWooCommercePaymentGatewaysCountriesPlugin() )->setup();

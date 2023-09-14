@@ -1,3 +1,3 @@
-# Pronamic WooCommerce Conditional Payments Suggest
+# Pronamic WooCommerce Payment Gateways Countries
 
-This WordPress plugin adds a suggestion for the "Conditional Payment Methods for WooCommerce" plugin to all WooCommerce gateways to restrict payment methods to specific countries.
+This WordPress plugin makes it possible to set per WooCommerce payment gateway in which countries the gateway is available.
