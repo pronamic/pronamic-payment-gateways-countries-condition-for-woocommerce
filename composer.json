@@ -1,0 +1,37 @@
+{
+    "name": "pronamic/wp-pronamic-woocommerce-payment-gateways-countries-condition",
+    "description": "This plugin allows you to specify the countries in which each WooCommerce payment gateway is available.",
+    "type": "wordpress-plugin",
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "Pronamic",
+            "email": "info@pronamic.eu"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "automattic/jetpack-autoloader": true
+        },
+        "sort-packages": true,
+        "wp-slug": "pronamic-woocommerce-payment-gateways-countries-condition"
+    },
+    "require-dev": {
+        "pronamic/wp-coding-standards": "^2.0",
+        "pronamic/pronamic-cli": "dev-main"
+    },
+    "scripts": {
+        "phpcs": "vendor/bin/phpcs -s -v",
+        "build": "vendor/bin/pronamic wp-build",
+        "translate": [
+            "@build",
+            "rsync --recursive --delete --verbose ./build/project/languages/ ./languages/"  
+        ],
+        "version": "@build",
+        "release": "vendor/bin/pronamic release --gcloud-storage --pronamic-directory --github"
+    },
+    "require": {
+        "automattic/jetpack-autoloader": "^2.11"
+    }
+}
