@@ -22,34 +22,17 @@ class Plugin {
 	protected static $instance = null;
 
 	/**
-	 * Plugin file.
-	 *
-	 * @var string
-	 */
-	private $file;
-
-	/**
 	 * Return an instance of this class.
 	 *
-	 * @param string $file File.
 	 * @return self A single instance of this class.
 	 */
-	public static function instance( $file = '' ) {
+	public static function instance() {
 		// If the single instance hasn't been set, set it now.
 		if ( null === self::$instance ) {
-			self::$instance = new self( $file );
+			self::$instance = new self();
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Construct plugin.
-	 * 
-	 * @param string $file File.
-	 */
-	public function __construct( $file ) {
-		$this->file = $file;
 	}
 
 	/**

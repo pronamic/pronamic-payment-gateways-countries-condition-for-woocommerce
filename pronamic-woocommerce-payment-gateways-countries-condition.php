@@ -27,4 +27,11 @@ require_once __DIR__ . '/vendor/autoload_packages.php';
 /**
  * Bootstrap.
  */
-\Pronamic\WooCommercePaymentGatewaysCountriesCondition\Plugin::instance( __FILE__ )->setup();
+add_action(
+	'plugins_loaded',
+	function () {
+		load_plugin_textdomain( 'pronamic-woocommerce-payment-gateways-countries-condition', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+	}
+);
+
+\Pronamic\WooCommercePaymentGatewaysCountriesCondition\Plugin::instance()->setup();
