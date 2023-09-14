@@ -3,7 +3,6 @@
 	"plugins": [
 		".",
 		"https://downloads.wordpress.org/plugin/woocommerce.zip",
-		"https://downloads.wordpress.org/plugin/conditional-payments.zip",
 		"https://downloads.wordpress.org/plugin/pronamic-client.zip",
 		"https://downloads.wordpress.org/plugin/pronamic-ideal.zip",
 		"https://downloads.wordpress.org/plugin/query-monitor.zip"
