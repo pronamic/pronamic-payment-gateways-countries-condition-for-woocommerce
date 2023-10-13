@@ -23,9 +23,12 @@
         "sort-packages": true,
         "wp-slug": "pronamic-woocommerce-payment-gateways-countries-condition"
     },
+    "require": {
+        "automattic/jetpack-autoloader": "^2.11"
+    },
     "require-dev": {
-        "pronamic/wp-coding-standards": "^2.0",
-        "pronamic/pronamic-cli": "dev-main"
+        "pronamic/pronamic-cli": "^1.1",
+        "pronamic/wp-coding-standards": "^2.0"
     },
     "scripts": {
         "phpcs": "vendor/bin/phpcs -s -v",
@@ -35,9 +38,9 @@
             "rsync --recursive --delete --verbose ./build/project/languages/ ./languages/"  
         ],
         "version": "@build",
-        "release": "vendor/bin/pronamic release --gcloud-storage --pronamic-directory --github"
-    },
-    "require": {
-        "automattic/jetpack-autoloader": "^2.11"
+        "release": [
+            "@build",
+            "vendor/bin/pronamic release-to-pronamic"
+        ]
     }
 }
