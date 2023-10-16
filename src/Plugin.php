@@ -88,21 +88,21 @@ class Plugin {
 	 */
 	public function add_countries_setting( $fields ) {
 		$fields['pronamic_countries_title'] = [
-			'title' => \__( 'Countries condition', 'pronamic-woocommerce-payment-gateways-countries-condition' ),
+			'title' => \__( 'Countries condition', 'pronamic-payment-gateways-countries-condition-for-woocommerce' ),
 			'type'  => 'title',
 		];
 
 		$fields['pronamic_countries'] = [
-			'title'             => \__( 'Countries', 'pronamic-woocommerce-payment-gateways-countries-condition' ),
+			'title'             => \__( 'Countries', 'pronamic-payment-gateways-countries-condition-for-woocommerce' ),
 			'type'              => 'multiselect',
 			'class'             => 'wc-enhanced-select',
 			'css'               => 'width: 400px;',
 			'options'           => \WC()->countries->get_countries(),
 			'default'           => '',
-			'description'       => \__( 'If gateway is only available for certain countries, set it up here. Leave blank to enable for all countries.', 'pronamic-woocommerce-payment-gateways-countries-condition' ),
+			'description'       => \__( 'If gateway is only available for certain countries, set it up here. Leave blank to enable for all countries.', 'pronamic-payment-gateways-countries-condition-for-woocommerce' ),
 			'desc_tip'          => true,
 			'custom_attributes' => [
-				'data-placeholder' => \__( 'Select some countries', 'pronamic-woocommerce-payment-gateways-countries-condition' ),
+				'data-placeholder' => \__( 'Select some countries', 'pronamic-payment-gateways-countries-condition-for-woocommerce' ),
 			],
 		];
 
