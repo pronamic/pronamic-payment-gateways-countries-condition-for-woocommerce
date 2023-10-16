@@ -9,7 +9,7 @@
 		"https://downloads.wordpress.org/plugin/woocommerce.zip"
 	],
 	"mappings": {
-		"wp-content/plugins/pronamic-woocommerce-payment-gateways-countries-condition-dev": "./",
-		"wp-content/plugins/pronamic-woocommerce-payment-gateways-countries-condition": "./build/project/"
+		"wp-content/plugins/pronamic-payment-gateways-countries-condition-for-woocommerce-dev": "./",
+		"wp-content/plugins/pronamic-payment-gateways-countries-condition-for-woocommerce": "./build/project/"
 	}
 }

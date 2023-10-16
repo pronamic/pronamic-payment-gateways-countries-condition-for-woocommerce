@@ -1,6 +1,6 @@
 <?php
 /**
- * Pronamic WooCommerce Payment Gateways Countries Condition Plugin
+ * Pronamic Payment Gateways Countries Condition for WooCommerce
  *
  * @package   PronamicWooCommercePaymentGatewaysCountriesCondition
  * @author    Pronamic
@@ -10,7 +10,7 @@
 namespace Pronamic\WooCommercePaymentGatewaysCountriesCondition;
 
 /**
- * Pronamic WooCommerce Payment Gateways Countries Condition class
+ * Pronamic Payment Gateways Countries Condition for WooCommerce class
  */
 class Plugin {
 	/**

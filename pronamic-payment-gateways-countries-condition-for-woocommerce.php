@@ -1,22 +1,22 @@
 <?php
 /**
- * Pronamic WooCommerce Payment Gateways Countries Condition
+ * Pronamic Payment Gateways Countries Condition for WooCommerce
  *
  * @package   PronamicWooCommercePaymentGatewaysCountriesCondition
  * @author    Pronamic
  * @copyright 2023 Pronamic
  * 
  * @wordpress-plugin
- * Plugin Name: Pronamic WooCommerce Payment Gateways Countries Condition
+ * Plugin Name: Pronamic Payment Gateways Countries Condition for WooCommerce
  * Description: This plugin allows you to specify the countries in which each WooCommerce payment gateway is available.
  * Version:     1.0.0
  * Author:      Pronamic
  * Author URI:  https://www.pronamic.eu/
- * Text Domain: pronamic-woocommerce-payment-gateways-countries-condition
+ * Text Domain: pronamic-payment-gateways-countries-condition-for-woocommerce
  * Domain Path: /languages/
  * License:     Proprietary
- * License URI: https://www.pronamic.shop/product/pronamic-woocommerce-payment-gateways-countries-condition/
- * Update URI:  https://wp.pronamic.directory/plugins/pronamic-woocommerce-payment-gateways-countries-condition/
+ * License URI: https://www.pronamic.shop/product/pronamic-payment-gateways-countries-condition-for-woocommerce/
+ * Update URI:  https://wp.pronamic.directory/plugins/pronamic-payment-gateways-countries-condition-for-woocommerce/
  */
 
 /**
@@ -30,7 +30,11 @@ require_once __DIR__ . '/vendor/autoload_packages.php';
 add_action(
 	'plugins_loaded',
 	function () {
-		load_plugin_textdomain( 'pronamic-woocommerce-payment-gateways-countries-condition', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+		load_plugin_textdomain(
+			'pronamic-payment-gateways-countries-condition-for-woocommerce',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/languages'
+		); 
 	}
 );
 

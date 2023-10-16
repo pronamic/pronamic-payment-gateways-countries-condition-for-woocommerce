@@ -1,4 +1,4 @@
-# Pronamic WooCommerce Payment Gateways Countries Condition
+# Pronamic Payment Gateways Countries Condition for WooCommerce
 
 This plugin allows you to specify the countries in which each WooCommerce payment gateway is available. This is useful for businesses that want to offer different payment methods to customers in different countries.
 
