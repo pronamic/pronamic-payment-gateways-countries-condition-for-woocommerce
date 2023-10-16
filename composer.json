@@ -1,46 +1,46 @@
 {
-    "name": "pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce",
-    "description": "This plugin allows you to specify the countries in which each WooCommerce payment gateway is available.",
-    "type": "wordpress-plugin",
-    "license": "proprietary",
-    "type": "wordpress-plugin",
-    "autoload": {
-        "psr-4": {
-            "Pronamic\\WooCommercePaymentGatewaysCountriesCondition\\": "src"
-        }
-    },
-    "authors": [
-        {
-            "name": "Pronamic",
-            "email": "info@pronamic.eu"
-        }
-    ],
-    "config": {
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "automattic/jetpack-autoloader": true
-        },
-        "sort-packages": true,
-        "wp-slug": "pronamic-payment-gateways-countries-condition-for-woocommerce"
-    },
-    "require": {
-        "automattic/jetpack-autoloader": "^2.11"
-    },
-    "require-dev": {
-        "pronamic/pronamic-cli": "^1.1",
-        "pronamic/wp-coding-standards": "^2.0"
-    },
-    "scripts": {
-        "phpcs": "vendor/bin/phpcs -s -v",
-        "build": "vendor/bin/pronamic wp-build",
-        "translate": [
-            "@build",
-            "rsync --recursive --delete --verbose ./build/project/languages/ ./languages/"  
-        ],
-        "version": "@build",
-        "release": [
-            "@build",
-            "vendor/bin/pronamic release-to-pronamic"
-        ]
-    }
+	"name": "pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce",
+	"description": "This plugin allows you to specify the countries in which each WooCommerce payment gateway is available.",
+	"type": "wordpress-plugin",
+	"license": "proprietary",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"psr-4": {
+			"Pronamic\\WooCommercePaymentGatewaysCountriesCondition\\": "src"
+		}
+	},
+	"authors": [
+		{
+			"name": "Pronamic",
+			"email": "info@pronamic.eu"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"automattic/jetpack-autoloader": true
+		},
+		"sort-packages": true,
+		"wp-slug": "pronamic-payment-gateways-countries-condition-for-woocommerce"
+	},
+	"require": {
+		"automattic/jetpack-autoloader": "^2.11"
+	},
+	"require-dev": {
+		"pronamic/pronamic-cli": "^1.1",
+		"pronamic/wp-coding-standards": "^2.0"
+	},
+	"scripts": {
+		"phpcs": "vendor/bin/phpcs -s -v",
+		"build": "vendor/bin/pronamic wp-build",
+		"translate": [
+			"@build",
+			"rsync --recursive --delete --verbose ./build/project/languages/ ./languages/"
+		],
+		"version": "@build",
+		"release": [
+			"@build",
+			"vendor/bin/pronamic release-to-pronamic"
+		]
+	}
 }
