@@ -17,6 +17,9 @@
  * License:     Proprietary
  * License URI: https://www.pronamic.shop/product/pronamic-payment-gateways-countries-condition-for-woocommerce/
  * Update URI:  https://wp.pronamic.directory/plugins/pronamic-payment-gateways-countries-condition-for-woocommerce/
+ *
+ * WC requires at least: 8.0
+ * WC tested up to: 8.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
