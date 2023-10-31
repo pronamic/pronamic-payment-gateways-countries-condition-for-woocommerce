@@ -1,5 +1,11 @@
 # Pronamic Payment Gateways Countries Condition for WooCommerce
 
+[![Latest Stable Version](http://poser.pugx.org/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/v)](https://packagist.org/packages/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce)
+[![Total Downloads](http://poser.pugx.org/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/downloads)](https://packagist.org/packages/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce)
+[![Latest Unstable Version](http://poser.pugx.org/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/v/unstable)](https://packagist.org/packages/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce)
+[![License](http://poser.pugx.org/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/license)](https://packagist.org/packages/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce)
+[![PHP Version Require](http://poser.pugx.org/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/require/php)](https://packagist.org/packages/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce)
+
 This plugin allows you to specify the countries in which each WooCommerce payment gateway is available. This is useful for businesses that want to offer different payment methods to customers in different countries.
 
 ## Features
