@@ -9,13 +9,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-10-16T07:55:10+00:00\n"
+"POT-Creation-Date: 2023-10-31T13:53:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: pronamic-payment-gateways-countries-condition-for-woocommerce\n"
 
 #. Plugin Name of the plugin
 msgid "Pronamic Payment Gateways Countries Condition for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://www.pronamic.shop/product/pronamic-payment-gateways-countries-condition-for-woocommerce/"
 msgstr ""
 
 #. Description of the plugin
@@ -30,18 +34,18 @@ msgstr ""
 msgid "https://www.pronamic.eu/"
 msgstr ""
 
-#: src/Plugin.php:91
+#: src/Plugin.php:90
 msgid "Countries condition"
 msgstr ""
 
-#: src/Plugin.php:96
+#: src/Plugin.php:95
 msgid "Countries"
 msgstr ""
 
-#: src/Plugin.php:102
+#: src/Plugin.php:101
 msgid "If gateway is only available for certain countries, set it up here. Leave blank to enable for all countries."
 msgstr ""
 
-#: src/Plugin.php:105
+#: src/Plugin.php:104
 msgid "Select some countries"
 msgstr ""
