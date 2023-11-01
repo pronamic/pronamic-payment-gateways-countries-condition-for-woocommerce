@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/github-banner.png" alt=""></p>
+
 # Pronamic Payment Gateways Countries Condition for WooCommerce
 
 [![Latest Stable Version](http://poser.pugx.org/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/v)](https://packagist.org/packages/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce)
