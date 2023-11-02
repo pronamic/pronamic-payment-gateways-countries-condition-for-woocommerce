@@ -21,7 +21,7 @@
  * Domain Path: /languages/
  * Update URI: https://wp.pronamic.directory/plugins/pronamic-payment-gateways-countries-condition-for-woocommerce/
  * WC requires at least: 8.0
- * WC tested up to: 8.0
+ * WC tested up to: 8.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -50,3 +50,18 @@ add_action(
 \Pronamic\WooCommercePaymentGatewaysCountriesCondition\Plugin::instance()->setup();
 
 \Pronamic\WordPress\Updater\Plugin::instance()->setup();
+
+/**
+ * High Performance Order Storage.
+ * 
+ * @link https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/issues/2
+ * @link https://github.com/woocommerce/woocommerce/wiki/High-Performance-Order-Storage-Upgrade-Recipe-Book#declaring-extension-incompatibility
+ */
+add_action(
+	'before_woocommerce_init',
+	function () {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
+	}
+);
