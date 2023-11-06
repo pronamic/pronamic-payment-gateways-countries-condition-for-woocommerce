@@ -16,7 +16,6 @@ class Plugin {
 	/**
 	 * Instance of this class.
 	 *
-	 * @since 4.7.1
 	 * @var self
 	 */
 	protected static $instance = null;
