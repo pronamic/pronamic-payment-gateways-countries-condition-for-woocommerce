@@ -1,6 +1,6 @@
 {
 	"name": "@pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "This plugin allows you to specify the countries in which each WooCommerce payment gateway is available.",
 	"keywords": [
 		"pronamic",
