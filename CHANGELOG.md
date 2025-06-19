@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2025-06-19
+
+### Commits
+
+- WP-CLI is dev requirement. ([563f323](https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/commit/563f32387f7c67f36ac9e20627a924d7fdb02f99))
+
+### Composer
+
+- Removed `wp-cli/dist-archive-command` `*`.
+- Removed `wp-cli/wp-cli-bundle` `*`.
+
+Full set of changes: [`1.0.3...1.0.4`][1.0.4]
+
+[1.0.4]: https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/compare/v1.0.3...v1.0.4
+
 ## [1.0.3] - 2025-06-19
 
 ### Commits
