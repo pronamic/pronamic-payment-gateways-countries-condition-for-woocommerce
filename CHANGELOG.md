@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Allow Jetpack Autoloader 6.x while retaining support for 3.x, 4.x and 5.x.
+
 ## [1.0.4] - 2025-06-19
 
 ### Commits
