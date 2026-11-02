@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
+## [1.0.5] - 2026-11-02
 
-- Allow Jetpack Autoloader 6.x while retaining support for 3.x, 4.x and 5.x.
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `^3.0 || ^4.0 || ^5.0` to `^3.0 || ^4.0 || ^5.0 || ^6.0` to allow Jetpack Autoloader 6.x. Jetpack Autoloader 6.0.0 only raises its minimum PHP version to 7.4. The lock file keeps `v5.0.7`. Release notes: https://github.com/Automattic/jetpack-autoloader/blob/v6.0.0/CHANGELOG.md
+
+Full set of changes: [`1.0.4...1.0.5`][1.0.5]
+
+[1.0.5]: https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/compare/v1.0.4...v1.0.5
 
 ## [1.0.4] - 2025-06-19
 
@@ -72,5 +78,5 @@ Full set of changes: [`1.0.0...1.0.1`][1.0.1]
 
 - First release.
 
-[unreleased]: https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/compare/v1.0.5...HEAD
 [1.0.0]: https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/releases/tag/v1.0.0
